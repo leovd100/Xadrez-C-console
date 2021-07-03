@@ -20,7 +20,7 @@ namespace xadrez
 
         public override bool[,] MovimentosPossiveis()
         {
-            bool[,] mat = new bool[tab.Linhas, tab.Coluna];
+            bool[,] mat = new bool[tab.linhas, tab.colunas];
             Posicao pos = new Posicao(0, 0);
 
             //Cima
@@ -42,7 +42,7 @@ namespace xadrez
                 mat[pos.Linha, pos.Coluna] = true;
             }
             // Sudeste
-            pos.DefinirValores(posicao.Linha + 1, posicao.Coluna -1);
+            pos.DefinirValores(posicao.Linha + 1, posicao.Coluna +1);
             if (tab.posicaoValida(pos) && PodeMover(pos))
             {
                 mat[pos.Linha, pos.Coluna] = true;
