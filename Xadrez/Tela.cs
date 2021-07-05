@@ -33,6 +33,10 @@ namespace Xadrez
             Console.WriteLine();
             Console.WriteLine("Turo: " + partida.turno);
             Console.WriteLine("Aguardando a jogada " + partida.jogadorAtual);
+            if (partida.Xeque)
+            {
+                Console.WriteLine("XEQUE!");
+            }
         }
 
         private static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
