@@ -10,7 +10,7 @@ namespace Xadrez
             try
             {
                 PartidaDeXadrez partida = new PartidaDeXadrez();
-                while (!partida.Terminada)
+                while (!partida.terminada)
                 {
                     try
                     {
@@ -22,25 +22,28 @@ namespace Xadrez
                         Console.Write("Digite a origem: ");
 
                         Posicao origem = Tela.LerPosicaoXadrez().toPosicao();
-                        partida.ValidarPosicaoDeOrigem(origem);
-                        bool[,] posicoesPossiveis = partida.Tab.peca(origem).MovimentosPossiveis();
+                        partida.validarPosicaoDeOrigem(origem);
+                        bool[,] posicoesPossiveis = partida.tab.peca(origem).MovimentosPossiveis();
 
                         Console.Clear();
 
-                        Tela.ImprimirTabuleiro(partida.Tab, posicoesPossiveis);
+                        Tela.ImprimirTabuleiro(partida.tab, posicoesPossiveis);
 
 
                         Console.Write("Digite o destino: ");
                         Posicao destino = Tela.LerPosicaoXadrez().toPosicao();
-                        partida.ValidarPosicaoDeDestino(origem, destino);
-                        partida.RealizaJogada(origem, destino);
+                        partida.validarPosicaoDeDestino(origem, destino);
+                        partida.realizaJogada(origem, destino);
                     }catch(TabuleiroException e)
                     {
                         Console.WriteLine(e.Message);
                         Console.ReadLine();
                     }
-                }
 
+                }
+                Console.Clear();
+
+                Tela.ImprimirPartida(partida);
             }
             catch(TabuleiroException e)
             {
